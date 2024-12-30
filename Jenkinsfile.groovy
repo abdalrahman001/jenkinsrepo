@@ -3,12 +3,17 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/username/repo.git'
+                git branch: 'main', url: 'https://github.com/abdalrahman001/jenkinsrepo'
+            }
+        }
+        stage('Set Executable Permission') {
+            steps {
+                sh 'chmod +x ./ls.sh'
             }
         }
         stage('Execute Bash Script') {
             steps {
-                sh './script_name.sh'
+                sh './ls.sh'  
             }
         }
     }
